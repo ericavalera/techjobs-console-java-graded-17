@@ -61,7 +61,7 @@ public class JobData {
      * with "Enterprise Holdings, Inc".
      *
      * @param column   Column that should be searched.
-     * @param value Value of teh field to search for
+     * @param value Value of the field to search for
      * @return List of all jobs matching the criteria
      */
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
@@ -97,12 +97,12 @@ public class JobData {
         // TODO TASK 2 & 3- implement this method
         ArrayList<HashMap<String,String>> jobs = new ArrayList<>();
 
-        for(HashMap<String, String> row : allJobs){
-            for(String column : row.keySet()){
-                String aValue = row.get (column);
+        for(HashMap<String, String> job : allJobs){
+            for(String data : job.keySet()){
+                String aValue = job.get (data);
 
                 if(aValue.toUpperCase().contains(value.toUpperCase())){
-                    jobs.add(row);
+                    jobs.add(job);
                 }
             }
         }
