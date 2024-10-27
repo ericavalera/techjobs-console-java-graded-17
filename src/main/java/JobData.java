@@ -15,7 +15,6 @@ import java.util.List;
  */
 
 
-
 /** JobData class is responsible for importing data from the CSV file
  * Job Data is stored in the allJobs() ArrayList of HashMaps
  */
