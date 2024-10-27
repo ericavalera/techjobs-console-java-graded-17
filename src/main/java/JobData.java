@@ -13,11 +13,18 @@ import java.util.List;
 /**
  * Created by LaunchCode
  */
+
+
+//    TODO: GO OVER THE CODE STARTING FROM HERE
+
 public class JobData {
 
     private static final String DATA_FILE = "src/main/resources/job_data.csv";
     private static boolean isDataLoaded = false;
 
+    /** is a constant that that creates a collection/list of HashMaps(Key/Value pairs
+     *
+     */
     private static ArrayList<HashMap<String, String>> allJobs;
 
     /**
@@ -97,16 +104,14 @@ public class JobData {
         // TODO TASK 2 & 3- implement this method
         ArrayList<HashMap<String,String>> jobs = new ArrayList<>();
 
-        for(HashMap<String, String> job : allJobs){
-            for(String data : job.keySet()){
-                String aValue = job.get (data);
-
+        for (int i = 0;  i< allJobs.size(); i++){
+            HashMap<String, String> job = allJobs.get(i);
+            for(String aValue : job.values()){
                 if(aValue.toUpperCase().contains(value.toUpperCase())){
                     jobs.add(job);
                 }
             }
         }
-
         return jobs;
     }
 
