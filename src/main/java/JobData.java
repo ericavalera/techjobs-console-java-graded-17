@@ -15,7 +15,10 @@ import java.util.List;
  */
 
 
-//    TODO: GO OVER THE CODE STARTING FROM HERE
+
+/** JobData class is responsible for importing data from the CSV file
+ * Job Data is stored in the allJobs() ArrayList of HashMaps
+ */
 
 public class JobData {
 
@@ -40,15 +43,15 @@ public class JobData {
         loadData();
 
         ArrayList<String> values = new ArrayList<>();
-
+        //for-loop iterates through every "row"/HashMap in all jobs
         for (HashMap<String, String> row : allJobs) {
             String aValue = row.get(field);
-
+            //if aValue from allJobs isn't in the values Arraylist, it will be added.
             if (!values.contains(aValue)) {
                 values.add(aValue);
             }
         }
-
+        //returns the arrayList of values
         return values;
     }
 
@@ -77,12 +80,13 @@ public class JobData {
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-
+        //iterates through each job(row) in allJobs-- each row is a HashMap
         for (HashMap<String, String> row : allJobs) {
-
+            //column represents the key that is being searched, .get(column) accesses the value
             String aValue = row.get(column);
-
+            //if the searched result contains the value its then added to the jobs ArrayList
             if (aValue.toUpperCase().contains(value.toUpperCase())) {
+                //adds the job entry to the jobs arraylist aValue matches the values;p0-9-09IOPL:K./≤l./
                 jobs.add(row);
             }
         }
@@ -103,10 +107,14 @@ public class JobData {
 
         // TODO TASK 2 & 3- implement this method
         ArrayList<HashMap<String,String>> jobs = new ArrayList<>();
-
+        // iterates through the all allJobs arrayList
         for (int i = 0;  i< allJobs.size(); i++){
+            //declares a hashmap job entry from the allJobs arrayList
             HashMap<String, String> job = allJobs.get(i);
+            //iterates through the values of the job entry
             for(String aValue : job.values()){
+                //checks if the aValue contains the value that is being search,
+                //job will be added to the jobs arraylist if found
                 if(aValue.toUpperCase().contains(value.toUpperCase())){
                     jobs.add(job);
                 }
@@ -128,6 +136,11 @@ public class JobData {
         try {
 
             // Open the CSV file and set up pull out column header info and records
+            /*
+            @Class FileReader used for reading character files
+            @CSVParser parses files according to specified format
+            getRecords retrieves records from CSV file as CSV record object
+a             */
             Reader in = new FileReader(DATA_FILE);
             CSVParser parser = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
             List<CSVRecord> records = parser.getRecords();
