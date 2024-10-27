@@ -154,12 +154,12 @@ public class TechJobs {
         if(someJobs.isEmpty()){
             System.out.print("No Results");  // print instead of println for no extra space
         } else {
-            //iterates over someJobs
+            //iterates over Jobs/ someJobs is an ArrayList of (job) HashMaps
             for(HashMap<String,String> job: someJobs){
                 System.out.println("\n" +"*****");
-                //iterates over key/values
+                //iterates over job details (Hashmaps) - key/values in job
                 for(String key : job.keySet()){
-                    //prints key and values
+                    //prints key and values .get(key) gets the value
                     System.out.println(key + ": " + job.get(key));
                 }
                 System.out.println("*****");
